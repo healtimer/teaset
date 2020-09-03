@@ -34,6 +34,7 @@ export default class TransformView extends Component {
     inertial: true,
     magnetic: true,
     tension: true,
+    rotate:0,
   };
 
   constructor(props) {
@@ -377,10 +378,10 @@ export default class TransformView extends Component {
   };
 
   buildContainerStyle() {
-    let {containerStyle} = this.props;
+    let {containerStyle,rotate} = this.props;
     let {translateX, translateY, scale} = this.state;
     containerStyle = [].concat(containerStyle).concat({
-      transform: [{translateX: translateX}, {translateY: translateY}, {scale: scale}],
+      transform: [{translateX: translateX}, {translateY: translateY}, {scale: scale},{rotate:rotate+'deg'}],
     });
     return containerStyle;
   }
