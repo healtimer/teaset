@@ -31,7 +31,7 @@ export default class PullPickerView extends Overlay.PullView {
   }
 
   renderContent() {
-    let {title, items, selectedIndex, getItemText, numberOfLines=1} = this.props;
+    let {title, items, selectedIndex, getItemText, numberOfLines=1, itemStyle={}, itemTextStyle={},  ...others} = this.props;
 
     let headerRowStyle = {
       backgroundColor: Theme.pupHeaderColor,
