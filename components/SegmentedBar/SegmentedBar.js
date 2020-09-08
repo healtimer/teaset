@@ -192,7 +192,7 @@ export default class SegmentedBar extends Component {
   renderItem(item, index) {
     let saveOnLayout = item.props.onLayout;
     let newItem = React.cloneElement(item, {
-      active: index === this.activeIndex,
+      active: index === this.props.activeIndex,
       onLayout: e => {
         this.onItemLayout(index, e);
         saveOnLayout && saveOnLayout(e);
