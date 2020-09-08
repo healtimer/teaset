@@ -20,6 +20,7 @@ export default class SegmentedView extends Component {
     barPosition: PropTypes.oneOf(['top', 'bottom']),
     //SegmentedBar
     barStyle: ViewPropTypes.style,
+    barItemStyle: ViewPropTypes.style,
     justifyItem: PropTypes.oneOf(['fixed', 'scrollable']),
     indicatorType: PropTypes.oneOf(['none', 'boxWidth', 'itemWidth', 'customWidth']),
     indicatorPosition: PropTypes.oneOf(['top', 'bottom']),
@@ -95,7 +96,7 @@ export default class SegmentedView extends Component {
   }
 
   renderBar() {
-    let {barPosition, barStyle, justifyItem, indicatorType, indicatorPosition, indicatorLineColor, indicatorLineWidth, indicatorWidth, indicatorPositionPadding, animated, autoScroll, onChange, children} = this.props;
+    let {barItemStyle, barPosition, barStyle, justifyItem, indicatorType, indicatorPosition, indicatorLineColor, indicatorLineWidth, indicatorWidth, indicatorPositionPadding, animated, autoScroll, onChange, children} = this.props;
 
     if (!indicatorPosition && barPosition == 'bottom') {
       indicatorPosition = 'top';
@@ -124,6 +125,7 @@ export default class SegmentedView extends Component {
               titleStyle={item.props.titleStyle}
               activeTitleStyle={item.props.activeTitleStyle}
               badge={item.props.badge}
+              style={barItemStyle}
               />
           ))}
         </SegmentedBar>
