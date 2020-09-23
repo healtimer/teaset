@@ -63,7 +63,6 @@ export default class SegmentedBar extends Component {
       this._activeIndex = nextItemsLayout.length - 1;
     }
     this.updateIndicator();
-    console.warn(11);
   }
 
   get activeIndex() {
