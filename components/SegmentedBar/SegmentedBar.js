@@ -63,6 +63,7 @@ export default class SegmentedBar extends Component {
       this._activeIndex = nextItemsLayout.length - 1;
     }
     this.updateIndicator();
+    console.warn(11);
   }
 
   get activeIndex() {
@@ -73,7 +74,7 @@ export default class SegmentedBar extends Component {
     if (this._activeIndex != value) {
       this._activeIndex = value;
       this.updateIndicator();
-      this.forceUpdate();
+      // this.forceUpdate();
       this.props.onChange && this.props.onChange(value);
     }
   }
@@ -122,7 +123,7 @@ export default class SegmentedBar extends Component {
       this._indicatorX = new Animated.Value(this.indicatorXValue);
       this._indicatorWidth = new Animated.Value(this.indicatorWidthValue);
     }
-    this.forceUpdate();
+    // this.forceUpdate();
   }
 
   updateIndicator() {
@@ -181,6 +182,7 @@ export default class SegmentedBar extends Component {
     if (!this.isEqualLayout(layout, this._itemsLayout[index])) {
       this._itemsLayout[index] = layout;
       this.checkInitIndicator();
+      this.forceUpdate();
     }
   }
 
@@ -200,7 +202,7 @@ export default class SegmentedBar extends Component {
       onAddWidth: width => {
         if (width != this._itemsAddWidth[index]) {
           this._itemsAddWidth[index] = width;
-          this.forceUpdate();
+          // this.forceUpdate();
         }
       }
     });
