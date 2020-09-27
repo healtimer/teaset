@@ -181,7 +181,7 @@ export default class SegmentedBar extends Component {
     if (!this.isEqualLayout(layout, this._itemsLayout[index])) {
       this._itemsLayout[index] = layout;
       this.checkInitIndicator();
-      this.forceUpdate();
+      index===0 && this.forceUpdate();
     }
   }
 
