@@ -84,6 +84,10 @@ export default class SegmentedItem extends Component {
         count={badge}
         onLayout={e => {
           let {width} = e.nativeEvent.layout;
+      
+          //修复 ios个别系统(如ios13.6) 出现浮点数bug导致对比不同而不断setState刷新
+          width = width.toFixed()/1;
+
           if (width != this.state.badgeWidth) {
             this.setState({badgeWidth: width});
             onAddWidth && onAddWidth(width);
